@@ -1,1 +1,168 @@
-
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home Drafters Pte Ltd | Construction & Engineering</title>
+<style>
+:root {
+  --site-primary: #e3262e;
+  --site-on-primary: #171717;
+  --site-secondary: #252a2e;
+  --site-on-secondary: #ffffff;
+  --site-background: #111416;
+  --site-on-background: #f5f4ef;
+  --site-font-body: Arial, Helvetica, sans-serif;
+  --site-font-heading: Impact, "Arial Narrow", Arial, sans-serif;
+  --site-heading-scale: 1;
+  --site-spacing-scale: 1;
+  --site-radius-scale: 1;
+  --site-decoration-opacity: 1;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: light-dark(#f5f4ef, var(--site-background)); color: light-dark(#171a1c, var(--site-on-background)); font-family: var(--site-font-body); }
+#app { min-height: 100vh; width: 100%; border-radius: 0; background-color: light-dark(#f5f4ef, var(--site-background)); color: light-dark(#171a1c, var(--site-on-background)); overflow: hidden; }
+a { color: inherit; text-decoration: none; }
+.container { width: min(1160px, calc(100% - 44px)); margin: auto; }
+.topbar { background: var(--site-primary); color: #171717; font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 10px 0; }
+.topbar .container { display:flex; justify-content:space-between; gap:15px; flex-wrap:wrap; }
+header { background: #171b1e; color: white; position: relative; z-index: 3; }
+.nav { min-height: 82px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+.brand { display:flex; align-items:center; gap:12px; font-weight:900; letter-spacing:.04em; }
+.brand-logo { display:block; width:260px; max-width:48vw; height:auto; }
+.brand-mark { width:42px; height:42px; display:grid; place-items:center; background:var(--site-primary); color:#171717; font-weight:1000; clip-path: polygon(0 0,100% 0,100% 72%,72% 100%,0 100%); }
+.brand small { display:block; font-size:9px; letter-spacing:.22em; color:#b8bdc0; margin-top:4px; }
+.navlinks { display:flex; gap:27px; align-items:center; font-size:12px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
+.navlinks a:hover { color:var(--site-primary); }
+.nav-cta, .btn { display:inline-flex; align-items:center; justify-content:center; padding:15px 21px; background:var(--site-primary); color:#171717; font-weight:900; text-transform:uppercase; letter-spacing:.08em; font-size:11px; border:0; cursor:pointer; transition:transform .2s, background .2s; }
+.btn:hover,.nav-cta:hover { transform:translateY(-2px); background:#ff5960; }
+.menu-toggle { display:none; background:none; border:1px solid #555; color:white; padding:10px 12px; font-size:20px; }
+.hero { min-height:620px; position:relative; display:flex; align-items:center; background:linear-gradient(90deg,rgba(12,15,17,.96) 0%,rgba(12,15,17,.83) 48%,rgba(12,15,17,.25) 100%), linear-gradient(135deg,#343c40,#15191c 54%,#596166); color:white; isolation:isolate; }
+.hero:before { content:""; position:absolute; inset:0; z-index:-1; opacity:var(--site-decoration-opacity); background:repeating-linear-gradient(135deg,transparent 0 54px,rgba(255,255,255,.035) 55px 57px), linear-gradient(120deg,transparent 50%,rgba(242,183,5,.12) 50.2%,transparent 50.8%); }
+.hero-art { position:absolute; right:4%; bottom:0; width:min(49%,620px); height:92%; opacity:.85; z-index:-1; }
+.eyebrow { color:var(--site-primary); font-size:11px; font-weight:900; letter-spacing:.22em; text-transform:uppercase; display:flex; align-items:center; gap:12px; }
+.eyebrow:before { content:""; width:34px; height:2px; background:var(--site-primary); }
+h1,h2,h3 { margin:0; }
+h1 { font-family:var(--site-font-heading); font-size:clamp(52px,7.5vw,94px); line-height:.93; letter-spacing:.015em; text-transform:uppercase; max-width:720px; margin:25px 0; }
+h1 span { color:var(--site-primary); }
+.hero p { max-width:520px; color:#d0d3d4; font-size:16px; line-height:1.8; margin:0 0 30px; }
+.hero-actions { display:flex; align-items:center; gap:24px; flex-wrap:wrap; }
+.text-link { font-size:11px; text-transform:uppercase; font-weight:900; letter-spacing:.12em; border-bottom:1px solid var(--site-primary); padding-bottom:7px; }
+.stats { background:var(--site-primary); color:#171717; }
+.stats-grid { display:grid; grid-template-columns:repeat(4,1fr); }
+.stat { padding:27px 20px; border-right:1px solid rgba(0,0,0,.18); }
+.stat:last-child { border:0; }
+.stat strong { display:block; font-family:var(--site-font-heading); font-size:30px; letter-spacing:.03em; }
+.stat span { font-size:10px; text-transform:uppercase; font-weight:900; letter-spacing:.12em; }
+section { padding:96px 0; }
+.section-head { display:flex; justify-content:space-between; align-items:end; gap:30px; margin-bottom:42px; }
+.section-head h2 { font-family:var(--site-font-heading); font-size:clamp(38px,5vw,58px); text-transform:uppercase; line-height:1; margin-top:16px; }
+.section-head p { color:#777e81; max-width:390px; line-height:1.7; font-size:14px; margin:0; }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; }
+.about-visual { min-height:430px; background:linear-gradient(145deg,#4a5358,#1c2225); position:relative; overflow:hidden; display:flex; align-items:end; padding:30px; }
+.about-visual { background:#c6c9c5; align-items:center; justify-content:center; }
+.about-visual:before { display:none; }
+.about-visual:after { display:none; }
+.secondary-logo { display:block; position:relative; z-index:1; width:min(88%,500px); height:auto; }
+.about-visual:after { content:"ENGINEERING • CONSTRUCTION • DELIVERY"; position:relative; z-index:1; color:white; font-size:10px; letter-spacing:.18em; font-weight:900; }
+.about-copy h2 { font-family:var(--site-font-heading); font-size:clamp(38px,5vw,58px); line-height:1; text-transform:uppercase; margin:16px 0 22px; }
+.about-copy p { color:#737a7d; line-height:1.85; font-size:14px; }
+.checks { display:grid; grid-template-columns:1fr 1fr; gap:13px; margin:25px 0 30px; }
+.check { font-size:12px; font-weight:800; display:flex; gap:9px; align-items:center; }
+.check b { color:#c8202b; font-size:16px; }
+.services { background:#202629; color:white; }
+.services .section-head p { color:#b4babc; }
+.service-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+.service { min-height:250px; background:#2b3337; padding:26px 22px; border-top:3px solid #525b5f; transition:.2s; }
+.service:hover { border-color:var(--site-primary); transform:translateY(-5px); }
+.service .num { color:var(--site-primary); font-family:var(--site-font-heading); font-size:30px; }
+.service h3 { font-family:var(--site-font-heading); text-transform:uppercase; font-size:24px; margin:35px 0 12px; }
+.service p { color:#b4babc; font-size:12px; line-height:1.7; }
+.projects-grid { display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:16px; }
+.project { min-height:320px; display:flex; flex-direction:column; justify-content:end; padding:24px; color:white; position:relative; overflow:hidden; background:linear-gradient(145deg,#687176,#22292d); }
+.project:nth-child(2) { background:linear-gradient(145deg,#555d61,#22282b); }
+.project:nth-child(3) { background:linear-gradient(145deg,#7a766c,#252b2e); }
+.project:before { content:""; position:absolute; inset:0; opacity:.45; background:repeating-linear-gradient(0deg,transparent 0 39px,rgba(255,255,255,.12) 40px 42px),repeating-linear-gradient(90deg,transparent 0 49px,rgba(255,255,255,.09) 50px 52px); }
+.project:after { content:"PROJECT IMAGE"; position:absolute; top:25px; left:25px; font-size:9px; letter-spacing:.2em; font-weight:900; color:rgba(255,255,255,.7); }
+.project > * { position:relative; }
+.project small { color:var(--site-primary); font-size:10px; font-weight:900; letter-spacing:.15em; text-transform:uppercase; }
+.project h3 { font-family:var(--site-font-heading); font-size:27px; text-transform:uppercase; margin-top:8px; }
+.cta-band { background:var(--site-primary); color:#171717; padding:55px 0; }
+.cta-inner { display:flex; align-items:center; justify-content:space-between; gap:25px; }
+.cta-inner h2 { font-family:var(--site-font-heading); font-size:clamp(34px,5vw,52px); line-height:1; text-transform:uppercase; }
+.cta-inner p { font-size:13px; max-width:450px; line-height:1.6; }
+.btn-dark { background:#171b1e; color:white; white-space:nowrap; }
+.contact { background:#f0eee8; color:#171a1c; }
+.contact-grid { display:grid; grid-template-columns:.85fr 1.15fr; gap:70px; }
+.contact h2 { font-family:var(--site-font-heading); font-size:clamp(40px,5vw,58px); text-transform:uppercase; line-height:1; margin:16px 0 20px; }
+.contact-intro { color:#6d7477; font-size:14px; line-height:1.8; }
+.contact-detail { margin-top:28px; border-top:1px solid #d2d0c9; padding-top:18px; }
+.contact-detail b { display:block; font-size:10px; text-transform:uppercase; letter-spacing:.12em; margin-bottom:6px; }
+.contact-detail span { color:#62696c; font-size:13px; }
+form { display:grid; grid-template-columns:1fr 1fr; gap:15px; }
+form label { display:block; font-size:10px; font-weight:900; text-transform:uppercase; letter-spacing:.1em; margin-bottom:8px; }
+form .full { grid-column:1/-1; }
+input,textarea,select { width:100%; padding:14px; border:1px solid #d0cec7; background:#fff; color:#171a1c; font:inherit; font-size:13px; outline:none; }
+input:focus,textarea:focus,select:focus { border-color:#c8202b; }
+textarea { min-height:120px; resize:vertical; }
+.form-note { grid-column:1/-1; color:#71787a; font-size:11px; line-height:1.5; }
+footer { background:#171b1e; color:white; padding:30px 0; }
+.footer-inner { display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
+footer p { color:#aeb4b6; font-size:11px; margin:0; }
+footer a { color:var(--site-primary); font-size:11px; font-weight:800; }
+@media(max-width:850px) { .navlinks { display:none; position:absolute; top:82px; left:0; right:0; padding:22px; background:#171b1e; flex-direction:column; align-items:flex-start; } .navlinks.open { display:flex; } .menu-toggle { display:block; } .nav-cta { display:none; } .hero { min-height:560px; } .hero-art { width:70%; opacity:.35; } .service-grid { grid-template-columns:repeat(2,1fr); } .projects-grid { grid-template-columns:1fr 1fr; } .project:first-child { grid-column:1/-1; } .about-grid,.contact-grid { grid-template-columns:1fr; gap:35px; } .section-head { align-items:flex-start; flex-direction:column; } }
+@media(max-width:560px) { .container { width:min(100% - 30px,1160px); } .topbar .container { font-size:9px; } .hero { min-height:570px; } .hero p { font-size:14px; } .stats-grid { grid-template-columns:1fr 1fr; } .stat:nth-child(2) { border-right:0; } .stat:nth-child(-n+2) { border-bottom:1px solid rgba(0,0,0,.18); } section { padding:68px 0; } .service-grid,.projects-grid { grid-template-columns:1fr; } .project:first-child { grid-column:auto; } .project { min-height:260px; } .cta-inner { align-items:flex-start; flex-direction:column; } form { grid-template-columns:1fr; } form .full { grid-column:auto; } .form-note { grid-column:auto; } }
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="topbar"><div class="container"><span>Construction • Civil Works • Engineering</span><span>Serving Fiji | Quality built into every project</span></div></div>
+  <header><div class="container nav">
+  <a class="brand" href="#home"><img class="brand-logo" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20900%20388%22%3E%3Crect%20width%3D%22900%22%20height%3D%22388%22%20fill%3D%22%23000%22%2F%3E%3Cpath%20d%3D%22M15%20194%20450%2040%20885%20194%22%20fill%3D%22none%22%20stroke%3D%22%23e3262e%22%20stroke-width%3D%2210%22%2F%3E%3Cpath%20d%3D%22M390%2095h55v55h-55zm65%200h55v55h-55zm-65%2065h55v55h-55zm65%200h55v55h-55z%22%20fill%3D%22%23e3262e%22%2F%3E%3Ctext%20x%3D%22450%22%20y%3D%22288%22%20text-anchor%3D%22middle%22%20fill%3D%22%23fff%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2272%22%20font-weight%3D%22900%22%20textLength%3D%22860%22%20lengthAdjust%3D%22spacingAndGlyphs%22%3EHOME%20DRAFTERS%20PTE%20LTD%3C%2Ftext%3E%3Cpath%20d%3D%22M15%20300h870%22%20stroke%3D%22%23e3262e%22%20stroke-width%3D%224%22%2F%3E%3Ctext%20x%3D%22450%22%20y%3D%22350%22%20text-anchor%3D%22middle%22%20fill%3D%22%23fff%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2224%22%20font-weight%3D%22900%22%20textLength%3D%22850%22%20lengthAdjust%3D%22spacingAndGlyphs%22%3EDESIGN%20%E2%97%87%20DRAFTING%20%E2%97%87%20PROJECT%20MANAGEMENT%20%E2%97%87%20CONSTRUCTION%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Home Drafters Pte Ltd — Design, Drafting, Project Management and Construction"></a>
+    <nav class="navlinks" id="navlinks"><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav>
+    <a class="nav-cta" href="#contact">Request a quote ↗</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+  </div></header>
+  <main>
+    <section class="hero" id="home"><svg class="hero-art" viewBox="0 0 620 580" fill="none" aria-hidden="true"><path d="M85 580V250h120v330M205 580V160h115v420M320 580V310h120v270M440 580V220h100v360" stroke="#aeb7b9" stroke-width="12"/><path d="M65 250h160M185 160h155M300 310h155M420 220h140" stroke="#e3262e" stroke-width="9"/><path d="M145 250v-65l120-75 120 75v65M260 160V45h270" stroke="#d3d9d9" stroke-width="7"/><path d="M500 45v60M260 45l-18 22M260 45l18 22" stroke="#e3262e" stroke-width="7"/><path d="M20 580h580" stroke="#e3262e" stroke-width="5"/></svg>
+      <div class="container"><div class="eyebrow">Built on strength. Driven by precision.</div><h1>Building<br><span>what matters.</span></h1><p>Reliable construction and engineering solutions, delivered with care, capability and commitment. From foundations to finished projects, we build for the future.</p><div class="hero-actions"><a class="btn" href="#contact">Discuss your project ↗</a><a class="text-link" href="#services">Explore our services</a></div></div>
+    </section>
+    <div class="stats"><div class="container stats-grid"><div class="stat"><strong>QUALITY</strong><span>In every detail</span></div><div class="stat"><strong>SAFETY</strong><span>Always first</span></div><div class="stat"><strong>DELIVERY</strong><span>On every project</span></div><div class="stat"><strong>FIJI</strong><span>Locally focused</span></div></div></div>
+    <section id="about"><div class="container about-grid"><div class="about-visual"><img class="brand-logo secondary-logo" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20900%20388%22%3E%3Crect%20width%3D%22900%22%20height%3D%22388%22%20fill%3D%22%23000%22%2F%3E%3Cpath%20d%3D%22M15%20194%20450%2040%20885%20194%22%20fill%3D%22none%22%20stroke%3D%22%23e3262e%22%20stroke-width%3D%2210%22%2F%3E%3Cpath%20d%3D%22M390%2095h55v55h-55zm65%200h55v55h-55zm-65%2065h55v55h-55zm65%200h55v55h-55z%22%20fill%3D%22%23e3262e%22%2F%3E%3Ctext%20x%3D%22450%22%20y%3D%22288%22%20text-anchor%3D%22middle%22%20fill%3D%22%23fff%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2272%22%20font-weight%3D%22900%22%20textLength%3D%22860%22%20lengthAdjust%3D%22spacingAndGlyphs%22%3EHOME%20DRAFTERS%20PTE%20LTD%3C%2Ftext%3E%3Cpath%20d%3D%22M15%20300h870%22%20stroke%3D%22%23e3262e%22%20stroke-width%3D%224%22%2F%3E%3Ctext%20x%3D%22450%22%20y%3D%22350%22%20text-anchor%3D%22middle%22%20fill%3D%22%23fff%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2224%22%20font-weight%3D%22900%22%20textLength%3D%22850%22%20lengthAdjust%3D%22spacingAndGlyphs%22%3EDESIGN%20%E2%97%87%20DRAFTING%20%E2%97%87%20PROJECT%20MANAGEMENT%20%E2%97%87%20CONSTRUCTION%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Home Drafters Pte Ltd — Design, Drafting, Project Management and Construction"></div><div class="about-copy"><div class="eyebrow">Who we are</div><h2>Practical expertise. Solid results.</h2><p>Home Drafters Pte Ltd is a construction and engineering company focused on delivering dependable building, civil and structural works. We bring together practical site experience, careful coordination and a commitment to quality workmanship.</p><p>We work collaboratively with clients, consultants and subcontractors to deliver projects safely, efficiently and to the required standards.</p><div class="checks"><div class="check"><b>✓</b> Quality workmanship</div><div class="check"><b>✓</b> Safety-focused delivery</div><div class="check"><b>✓</b> Clear communication</div><div class="check"><b>✓</b> Practical solutions</div></div><a class="btn" href="#contact">Talk to our team ↗</a></div></div></section>
+    <section class="services" id="services"><div class="container"><div class="section-head"><div><div class="eyebrow">What we do</div><h2>Our capabilities</h2></div><p>Flexible construction services to support projects from early planning and site preparation through to construction and completion.</p></div><div class="service-grid">
+      <article class="service"><div class="num">01 /</div><h3>Building works</h3><p>Commercial, residential and general building construction, alterations and extensions.</p></article>
+      <article class="service"><div class="num">02 /</div><h3>Civil works</h3><p>Site preparation, concrete works, drainage, pavements and associated infrastructure.</p></article>
+      <article class="service"><div class="num">03 /</div><h3>Structural works</h3><p>Structural steel, concrete structures, fabrication coordination and installation.</p></article>
+      <article class="service"><div class="num">04 /</div><h3>Project delivery</h3><p>Site coordination, programme management, subcontractor coordination and quality control.</p></article>
+      <article class="service"><div class="num">05 /</div><h3>BOQ & estimation</h3><p>Quantity take-offs, bills of quantities, cost estimates, tender pricing and construction budgeting.</p></article>
+    </div></div></section>
+    <section id="projects"><div class="container"><div class="section-head"><div><div class="eyebrow">Our work</div><h2>Projects in focus</h2></div><p>A selection of project types and work areas. Replace these sample panels with photographs and details from your completed projects.</p></div><div class="projects-grid">
+      <article class="project"><small>Commercial construction</small><h3>Commercial buildings</h3></article>
+      <article class="project"><small>Civil engineering</small><h3>Infrastructure & concrete</h3></article>
+      <article class="project"><small>Structural works</small><h3>Steel & fabrication</h3></article>
+    </div></div></section>
+    <div class="cta-band"><div class="container cta-inner"><div><h2>Have a project in mind?</h2><p>Let's discuss your requirements and work out a practical way forward.</p></div><a class="btn btn-dark" href="#contact">Request a quotation ↗</a></div></div>
+    <section class="contact" id="contact"><div class="container contact-grid"><div><div class="eyebrow">Get in touch</div><h2>Let's build something solid.</h2><p class="contact-intro">Contact our team to discuss your next construction project, request a quotation or find out more about our services.</p><div class="contact-detail"><b>Location</b><span>32 V M Pillay Road, Rifle Range, Lautoka, Fiji</span></div><div class="contact-detail"><b>Phone</b><span>7223872</span></div><div class="contact-detail"><b>Email</b><span>singhshivanjay@yahoo.com</span></div></div>
+      <form id="enquiryForm"><div><label for="name">Your name</label><input id="name" name="name" placeholder="Full name" required></div><div><label for="phone">Phone number</label><input id="phone" name="phone" placeholder="Contact number"></div><div class="full"><label for="email">Email address</label><input id="email" name="email" type="email" placeholder="name@example.com" required></div><div class="full"><label for="service">What do you need?</label><select id="service" name="service"><option>Building works</option><option>Civil works</option><option>Structural works</option><option>Project management</option><option>Other enquiry</option></select></div><div class="full"><label for="message">Project details</label><textarea id="message" name="message" placeholder="Tell us a little about your project..."></textarea></div><button class="btn full" type="submit">Prepare enquiry ↗</button><p class="form-note" id="formNote">Submitting opens your email app with the enquiry addressed to Home Drafters Pte Ltd.</p></form>
+    </div></section>
+  </main>
+  <footer><div class="container footer-inner"><a class="brand" href="#home"><img class="brand-logo" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20900%20388%22%3E%3Crect%20width%3D%22900%22%20height%3D%22388%22%20fill%3D%22%23000%22%2F%3E%3Cpath%20d%3D%22M15%20194%20450%2040%20885%20194%22%20fill%3D%22none%22%20stroke%3D%22%23e3262e%22%20stroke-width%3D%2210%22%2F%3E%3Cpath%20d%3D%22M390%2095h55v55h-55zm65%200h55v55h-55zm-65%2065h55v55h-55zm65%200h55v55h-55z%22%20fill%3D%22%23e3262e%22%2F%3E%3Ctext%20x%3D%22450%22%20y%3D%22288%22%20text-anchor%3D%22middle%22%20fill%3D%22%23fff%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2272%22%20font-weight%3D%22900%22%20textLength%3D%22860%22%20lengthAdjust%3D%22spacingAndGlyphs%22%3EHOME%20DRAFTERS%20PTE%20LTD%3C%2Ftext%3E%3Cpath%20d%3D%22M15%20300h870%22%20stroke%3D%22%23e3262e%22%20stroke-width%3D%224%22%2F%3E%3Ctext%20x%3D%22450%22%20y%3D%22350%22%20text-anchor%3D%22middle%22%20fill%3D%22%23fff%22%20font-family%3D%22Arial%2Csans-serif%22%20font-size%3D%2224%22%20font-weight%3D%22900%22%20textLength%3D%22850%22%20lengthAdjust%3D%22spacingAndGlyphs%22%3EDESIGN%20%E2%97%87%20DRAFTING%20%E2%97%87%20PROJECT%20MANAGEMENT%20%E2%97%87%20CONSTRUCTION%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Home Drafters Pte Ltd — Design, Drafting, Project Management and Construction"></a><p>© <span id="year">2026</span> HOME DRAFTERS PTE LTD. All rights reserved.</p><a href="#home">Back to top ↑</a></div></footer>
+</div>
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const navlinks = document.getElementById('navlinks');
+menuToggle.addEventListener('click', () => navlinks.classList.toggle('open'));
+navlinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navlinks.classList.remove('open')));
+document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('enquiryForm').addEventListener('submit', event => {
+  event.preventDefault();
+  const data = new FormData(event.currentTarget);
+  const subject = encodeURIComponent('Website enquiry - ' + data.get('service'));
+  const body = encodeURIComponent('Name: ' + data.get('name') + '\nPhone: ' + data.get('phone') + '\nEmail: ' + data.get('email') + '\nService: ' + data.get('service') + '\n\nProject details:\n' + data.get('message'));
+  document.getElementById('formNote').textContent = 'Your email app should open with the enquiry ready to send.';
+  window.location.href = 'mailto:singhshivanjay@yahoo.com?subject=' + subject + '&body=' + body;
+});
+</script>
+</body>
+</html>
